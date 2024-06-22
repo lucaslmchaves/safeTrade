@@ -34,7 +34,6 @@ export function RegisterPage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Verifica se há erros nos campos do formulário
     if (
       errorFirstName ||
       errorLastName ||
@@ -47,18 +46,17 @@ export function RegisterPage() {
       return;
     }
 
-    // Monta o objeto de usuário com os dados do formulário
     const usuarioData = {
       nome: firstName + " " + lastName,
       email: email,
       senha: password,
+      cpf: cpf,
     };
 
     try {
       setIsLoading(true);
-      // Envia os dados do usuário para o backend
       const response = await axios.post(
-        "http://localhost:8081/usuario",
+        "http://localhost:8081/api/usuarios/register",
         usuarioData
       );
       console.log("Usuário criado:", response.data);

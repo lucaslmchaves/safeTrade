@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -16,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import axios from "axios";
 
 export function LoginPage() {
   const [email, setEmail] = useState("");
@@ -57,33 +58,22 @@ export function LoginPage() {
       return;
     }
 
-    // Indicador de desempenho: tempo de resposta da autenticação
-    const startTime = performance.now();
+    try {
+      const response = await axios.post("http://localhost:8081/api/usuarios/login", {
+        email: email,
+        senha: password,
+      });
 
-    // Simulação de uma chamada de API para autenticar o usuário
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const endTime = performance.now();
-    console.log(`Tempo de resposta da autenticação: ${endTime - startTime}ms`);
-
-    if (response.ok) {
-      const data = await response.json();
-      // Armazene os dados do usuário no localStorage
-      localStorage.setItem('user', JSON.stringify(data));
-      navigate('/');
-    } else {
-      setEmailError("Erro ao fazer login, por favor, verifique suas credenciais.");
+      if (response.status === 200) {
+        const data = response.data;
+        localStorage.setItem("user", JSON.stringify(data));
+        navigate("/");
+      } else {
+        setEmailError("Erro ao fazer login, por favor, verifique suas credenciais.");
+      }
+    } catch (error) {
+      setEmailError("Erro ao fazer login, por favor, tente novamente.");
     }
-  };
-
-  const handleGoHome = () => {
-    navigate('/');
   };
 
   return (
@@ -164,19 +154,6 @@ export function LoginPage() {
                   <Text color={"green.400"}>Faça seu cadastro</Text>
                 </Link>
               </Text>
-            </Stack>
-
-            <Stack pt={6}>
-              <Button
-                onClick={handleGoHome}
-                bg={"green.400"}
-                color={"white"}
-                _hover={{
-                  bg: "green.500",
-                }}
-              >
-                Voltar para a página inicial
-              </Button>
             </Stack>
           </Stack>
         </Box>

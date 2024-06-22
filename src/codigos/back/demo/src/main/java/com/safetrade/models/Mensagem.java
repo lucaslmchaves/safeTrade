@@ -4,28 +4,28 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "avaliacoes")
-public class Avaliacao {
+@Table(name = "mensagens")
+public class Mensagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuarios usuario;
+    @JoinColumn(name = "troca_id", nullable = false)
+    private Troca troca;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "remetente_id", nullable = false)
+    private Usuarios remetente;
 
     @Column(nullable = false)
-    private String avaliacao; // Ótima, Regular, Ruim
-
-    @Column(nullable = false)
-    private String descricao;
+    private String conteudo;
 
     @Column(nullable = false)
     private Long timestamp;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }
@@ -34,28 +34,28 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public Usuarios getUsuario() {
-        return usuario;
+    public Troca getTroca() {
+        return troca;
     }
 
-    public void setUsuario(Usuarios usuario) {
-        this.usuario = usuario;
+    public void setTroca(Troca troca) {
+        this.troca = troca;
     }
 
-    public String getAvaliacao() {
-        return avaliacao;
+    public Usuarios getRemetente() {
+        return remetente;
     }
 
-    public void setAvaliacao(String avaliacao) {
-        this.avaliacao = avaliacao;
+    public void setRemetente(Usuarios remetente) {
+        this.remetente = remetente;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getConteudo() {
+        return conteudo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
     }
 
     public Long getTimestamp() {
@@ -70,8 +70,8 @@ public class Avaliacao {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Avaliacao avaliacao = (Avaliacao) o;
-        return Objects.equals(id, avaliacao.id);
+        Mensagem mensagem = (Mensagem) o;
+        return Objects.equals(id, mensagem.id);
     }
 
     @Override

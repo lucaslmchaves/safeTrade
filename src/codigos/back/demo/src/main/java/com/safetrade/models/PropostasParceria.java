@@ -4,28 +4,26 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "avaliacoes")
-public class Avaliacao {
+@Table(name = "propostas_parceria")
+public class PropostasParceria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuarios usuario;
-
     @Column(nullable = false)
-    private String avaliacao; // Ótima, Regular, Ruim
+    private String nomeEmpresa;
+
+    @Column(nullable = false, unique = true)
+    private String cnpj;
 
     @Column(nullable = false)
     private String descricao;
 
     @Column(nullable = false)
-    private Long timestamp;
+    private String detalhamentos;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }
@@ -34,20 +32,20 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public Usuarios getUsuario() {
-        return usuario;
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
     }
 
-    public void setUsuario(Usuarios usuario) {
-        this.usuario = usuario;
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
     }
 
-    public String getAvaliacao() {
-        return avaliacao;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setAvaliacao(String avaliacao) {
-        this.avaliacao = avaliacao;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getDescricao() {
@@ -58,20 +56,20 @@ public class Avaliacao {
         this.descricao = descricao;
     }
 
-    public Long getTimestamp() {
-        return timestamp;
+    public String getDetalhamentos() {
+        return detalhamentos;
     }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
+    public void setDetalhamentos(String detalhamentos) {
+        this.detalhamentos = detalhamentos;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Avaliacao avaliacao = (Avaliacao) o;
-        return Objects.equals(id, avaliacao.id);
+        PropostasParceria that = (PropostasParceria) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override

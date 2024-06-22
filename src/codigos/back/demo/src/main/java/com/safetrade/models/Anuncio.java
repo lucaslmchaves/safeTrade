@@ -1,27 +1,30 @@
 package com.safetrade.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
+@Table(name = "anuncios")
 public class Anuncio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String titulo;
+
+    @Column(nullable = false)
     private String descricao;
-    private String imagemUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @Column(nullable = false)
+    private String imagem;
 
-    // Getters e Setters
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuarios usuario;
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -46,19 +49,32 @@ public class Anuncio {
         this.descricao = descricao;
     }
 
-    public String getImagemUrl() {
-        return imagemUrl;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setImagemUrl(String imagemUrl) {
-        this.imagemUrl = imagemUrl;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
-    public Usuario getUsuario() {
+    public Usuarios getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Usuarios usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Anuncio anuncio = (Anuncio) o;
+        return Objects.equals(id, anuncio.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

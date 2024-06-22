@@ -11,23 +11,39 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/avaliacoes")
 public class AvaliacaoController {
+
     @Autowired
     private AvaliacaoService avaliacaoService;
 
-    @PostMapping
-    public ResponseEntity<?> createAvaliacao(@RequestBody Avaliacao avaliacao) {
-        return ResponseEntity.ok(avaliacaoService.save(avaliacao));
+    @PostMapping("/create/{usuarioId}")
+    public ResponseEntity<Avaliacao> createAvaliacao(@PathVariable Long usuarioId, @RequestBody Avaliacao avaliacao) {
+        return ResponseEntity.ok(avaliacaoService.createAvaliacao(avaliacao, usuarioId));
     }
 
-    @GetMapping("/usuario/{usuarioId}")
-    public ResponseEntity<?> getAvaliacoesByUsuario(@PathVariable Long usuarioId) {
-        List<Avaliacao> avaliacoes = avaliacaoService.findByUsuarioId(usuarioId);
-        return ResponseEntity.ok(avaliacoes);
+    @GetMapping("/user/{usuarioId}")
+    public ResponseEntity<List<Avaliacao>> getAvaliacoesByUsuarioId(@PathVariable Long usuarioId) {
+        return ResponseEntity.ok(avaliacaoService.getAvaliacoesByUsuarioId(usuarioId));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAvaliacao(@PathVariable Long id) {
-        avaliacaoService.delete(id);
-        return ResponseEntity.ok().build();
+    @GetMapping("/{id}")
+    public ResponseEntity<Avaliacao> getAvaliacaoById(@PathVariable Long id) {
+        return avaliacaoService.getAvaliacaoById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Avaliacao> updateAvaliacao(@PathVariable Long id, @RequestBody Avaliacao avaliacao) {
+        if (!avaliacaoService.getAvaliacaoById(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        avaliacao.setId(id);
+        return ResponseEntity.ok(avaliacaoService.updateAvaliacao(avaliacao));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteAvaliacao(@PathVariable Long id) {
+        avaliacaoService.deleteAvaliacao(id);
+        return ResponseEntity.noContent().build();
     }
 }

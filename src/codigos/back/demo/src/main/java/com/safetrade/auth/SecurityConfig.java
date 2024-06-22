@@ -38,14 +38,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("*"); // Permitir solicitações de qualquer origem
-        config.addAllowedMethod("*"); // Permitir todos os métodos (GET, POST, PUT, etc.)
-        config.addAllowedHeader("*"); // Permitir todos os cabeçalhos
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
 }

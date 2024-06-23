@@ -2,7 +2,12 @@ package com.safetrade.models;
 
 import javax.persistence.*;
 import java.util.Objects;
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
 @Entity
 @Table(name = "propostas_parceria")
 public class PropostasParceria {
@@ -23,46 +28,6 @@ public class PropostasParceria {
     @Column(nullable = false)
     private String detalhamentos;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNomeEmpresa() {
-        return nomeEmpresa;
-    }
-
-    public void setNomeEmpresa(String nomeEmpresa) {
-        this.nomeEmpresa = nomeEmpresa;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDetalhamentos() {
-        return detalhamentos;
-    }
-
-    public void setDetalhamentos(String detalhamentos) {
-        this.detalhamentos = detalhamentos;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -3,7 +3,12 @@ package com.safetrade.models;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
 @Entity
 @Table(name = "usuarios")
 public class Usuarios {
@@ -30,55 +35,7 @@ public class Usuarios {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Avaliacao> avaliacoes;
 
-    // Getters and Setters
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getReputacao() {
-        return reputacao;
-    }
-
-    public void setReputacao(String reputacao) {
-        this.reputacao = reputacao;
-    }
 
     public List<Avaliacao> getAvaliacoes() {
         return avaliacoes;

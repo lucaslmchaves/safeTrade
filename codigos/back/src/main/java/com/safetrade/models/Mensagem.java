@@ -2,7 +2,13 @@ package com.safetrade.models;
 
 import javax.persistence.*;
 import java.util.Objects;
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
 
+
+@Data
 @Entity
 @Table(name = "mensagens")
 public class Mensagem {
@@ -25,46 +31,6 @@ public class Mensagem {
     @Column(nullable = false)
     private Long timestamp;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Troca getTroca() {
-        return troca;
-    }
-
-    public void setTroca(Troca troca) {
-        this.troca = troca;
-    }
-
-    public Usuarios getRemetente() {
-        return remetente;
-    }
-
-    public void setRemetente(Usuarios remetente) {
-        this.remetente = remetente;
-    }
-
-    public String getConteudo() {
-        return conteudo;
-    }
-
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
 
     @Override
     public boolean equals(Object o) {

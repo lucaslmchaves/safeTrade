@@ -3,7 +3,12 @@ package com.safetrade.models;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
 @Entity
 @Table(name = "trocas")
 public class Troca {
@@ -26,46 +31,7 @@ public class Troca {
     @Column(nullable = false)
     private String status;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Usuarios getUsuario1() {
-        return usuario1;
-    }
-
-    public void setUsuario1(Usuarios usuario1) {
-        this.usuario1 = usuario1;
-    }
-
-    public Usuarios getUsuario2() {
-        return usuario2;
-    }
-
-    public void setUsuario2(Usuarios usuario2) {
-        this.usuario2 = usuario2;
-    }
-
-    public List<Mensagem> getMensagens() {
-        return mensagens;
-    }
-
-    public void setMensagens(List<Mensagem> mensagens) {
-        this.mensagens = mensagens;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public boolean equals(Object o) {

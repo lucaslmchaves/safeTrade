@@ -63,4 +63,8 @@ public class Usuarios {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public void setProfilePictureUrl(String profilePictureUrl) {
+        throw new UnsupportedOperationException("Unimplemented method 'setProfilePictureUrl'");
+    }
 }

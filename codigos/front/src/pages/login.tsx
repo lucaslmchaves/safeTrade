@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
 import axios from "axios";
 
-export function RegisterPage() {
+export function LoginPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

@@ -7,7 +7,6 @@
 <p align="center">
  <a href="#-Safe-Trade">Sobre</a> •
  <a href="#-Integrantes">Integrantes</a> • 
- <a href="#-Professores">Professores</a> • 
  <a href="#-Tecnologias">Tecnologias</a> • 
  <a href="#-Instruções-de-utilização">Instruções de Utilização</a> •
  <a href="#-Referências">Referências</a>  
@@ -19,18 +18,8 @@ A plataforma SafeTrade foi pensada como uma aplicação web que permite aos usu�
 
 ## Integrantes
 
-- Miguel Pedrosa 
 - Sérgio Parreiras
-- Roberta Micaela
 - Lucas Lafetá 
-- Matheus Cançado
-- Yan Cota
-
-## Professores
-
-- Cristiano Macedo Neto
-- Danilo Boechat Seufitelli
-
 
 ## 💻 Instruções de Utilização
 
@@ -101,12 +90,8 @@ yarn dev
 
 ## Histórico de versões
 
-- 0.1.1
-  - CHANGE: Atualização das documentações. Código permaneceu inalterado.
-- 0.1.0
-  - Implementação da funcionalidade X pertencente ao processo P.
-- 0.0.1
-  - Trabalhando na modelagem do processo de negócio.
+- 1.0.0
+  - Consolidação da versão final do código.
 
   ## Referências
 

@@ -1,27 +1,10 @@
 # Safe Trade
 
-
-**Miguel Pedrosa | miguelpedrosacarmononato@gmail.com**
-
 **Sérgio Parreiras | sergioparreiras09@gmail.com**
 
 **Roberta Micaela | roberttamicaella@gmail.com**
 
 **Lucas Lafetá | lucaslmchaves@gmail.com**
-
-**Matheus Cançado | mirandacancado@gmail.com**
-
-**Yan Cota | yanmariz10@gmail.com**
-
----
-# Professores:
-* Cristiano Macedo Neto 
-* Danilo Boechat Seufitelli
----
-
-_Curso de Engenharia de Software_
-
-_Instituto de Informática e Ciências Exatas – Pontifícia Universidade Católica de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 
 ---
 

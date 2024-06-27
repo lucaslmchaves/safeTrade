@@ -7,7 +7,6 @@
 <p align="center">
  <a href="#-Safe-Trade">Sobre</a> •
  <a href="#-Integrantes">Integrantes</a> • 
- <a href="#-Professores">Professores</a> • 
  <a href="#-Tecnologias">Tecnologias</a> • 
  <a href="#-Instruções-de-utilização">Instruções de Utilização</a> •
  <a href="#-Referências">Referências</a>  
@@ -19,94 +18,119 @@ A plataforma SafeTrade foi pensada como uma aplicação web que permite aos usu�
 
 ## Integrantes
 
-- Miguel Pedrosa 
 - Sérgio Parreiras
 - Roberta Micaela
 - Lucas Lafetá 
-- Matheus Cançado
-- Yan Cota
 
-## Professores
-
-- Cristiano Macedo Neto
-- Danilo Boechat Seufitelli
-
-
-## 💻 Instruções de Utilização
-
-### Introdução
+## 💻 Introdução
 
 Bem-vindo à nossa aplicação! Este guia rápido irá ajudá-lo a navegar pelas principais funcionalidades e aproveitar ao máximo sua experiência.
 
 ### Acesso à Conta
 
-- **Login/Cadastro:** Ao abrir a aplicação, você pode:
-  - **Logar:** Se já possui uma conta, insira suas credenciais.
-  - **Criar uma Conta:** Caso seja novo usuário, siga as instruções para criar uma conta.
+- **Login/Cadastro**: Ao abrir a aplicação, você pode:
+
+  - **Logar**: Se já possui uma conta, insira suas credenciais.
+
+  - **Criar uma Conta**: Caso seja novo usuário, siga as instruções para criar uma conta.
 
 ### Funcionalidades Principais
 
 #### Anunciar
 
-- **Anúncio:** Após o login, clique na aba "Anúncio" para criar um novo anúncio.
+- **Anúncio**: Após o login, clique na aba "Anúncio" para criar um novo anúncio.
+
   - Preencha os detalhes necessários do seu item ou serviço.
+
   - Publique o anúncio para que outros usuários possam vê-lo.
 
 #### Realizar Trocas
 
-- **Trocas:** Para iniciar uma troca com outro usuário:
+- **Trocas**: Para iniciar uma troca com outro usuário:
+
   - Clique na aba "Trocas".
+
   - Utilize o chat integrado para discutir os termos da troca e finalizar a negociação.
 
 #### Tornar-se Parceiro
 
-- **Parceiros:** Para estabelecer parcerias:
+- **Parceiros**: Para estabelecer parcerias:
+
   - Navegue até a aba "Parceiros".
+
   - Preencha uma proposta de parceria detalhando o que oferece e o que procura.
+
   - Espere que o SafeTrade entre em contato para negociar a parceria.
 
-### Configuração do Ambiente de Desenvolvimento
+## Passo a Passo de Instalação
+
+### Passo 01: Clone o Repositório
+
+git clone https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti2-1381100-safe-trade.git
+
+### Passo 02: Instalar Dependências
 
 #### Backend
 
-Configuração do Maven:
-Certifique-se de que você tem o Maven instalado. Utilize o comando:
+1. Acesse a pasta do backend:
+cd back/demo
 
-sh
-Copiar código
+2. Instale as dependências do Maven:
+   
 mvn clean install
-Iniciar a Aplicação:
 
-sh
-Copiar código
+#### Frontend
+
+1. Acesse a pasta do frontend:
+
+cd front
+
+2. Instale as dependências do npm:
+
+npm install
+
+### Passo 03: Configurar Banco de Dados
+
+Certifique-se de que você tem o PostgreSQL instalado e rodando em sua máquina. Crie um banco de dados chamado `safetrade` e atualize as configurações em `application.properties` na pasta `src/main/resources` do backend
+
+properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/safetrade
+spring.datasource.username=seu-usuario
+spring.datasource.password=sua-senha
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+### Passo 04: Iniciar Backend
+- Acesse a pasta clonada no Passo 01 pelo CMD:
+cd back/demo
+
+- Inicie a aplicação backend:
+  
 mvn spring-boot:run
-Frontend
-Clone o Repositório:
 
-sh
-Copiar código
-git clone <URL do Repositório>
-cd codigos/front
-Instale as Dependências:
-Certifique-se de que você tem o Node.js instalado. Utilize o comando:
+A aplicação backend estará rodando na porta [http://localhost:8081](http://localhost:8081).
 
-sh
+### Passo 05: Iniciar Frontend
+markdown
 Copiar código
-yarn install
-Iniciar a Aplicação:
+- Acesse a pasta clonada no Passo 01 pelo CMD:
+cd front
 
-sh
-Copiar código
-yarn dev
+
+- Inicie a aplicação frontend:
+
+A aplicação frontend estará rodando em [http://localhost:5173](http://localhost:5173).
+
+## Usuário de Teste
+
+- **Login**: admin@email.com
+- **Senha**: 123456
 
 ## Histórico de versões
 
-- 0.1.1
-  - CHANGE: Atualização das documentações. Código permaneceu inalterado.
-- 0.1.0
-  - Implementação da funcionalidade X pertencente ao processo P.
-- 0.0.1
-  - Trabalhando na modelagem do processo de negócio.
+- 1.0.0
+  - Consolidação da versão final do código.
 
   ## Referências
 

@@ -32,9 +32,72 @@ A plataforma SafeTrade foi pensada como uma aplicação web que permite aos usu�
 - Danilo Boechat Seufitelli
 
 
-## 💻 Instruções de utilização
+## 💻 Instruções de Utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+### Introdução
+
+Bem-vindo à nossa aplicação! Este guia rápido irá ajudá-lo a navegar pelas principais funcionalidades e aproveitar ao máximo sua experiência.
+
+### Acesso à Conta
+
+- **Login/Cadastro:** Ao abrir a aplicação, você pode:
+  - **Logar:** Se já possui uma conta, insira suas credenciais.
+  - **Criar uma Conta:** Caso seja novo usuário, siga as instruções para criar uma conta.
+
+### Funcionalidades Principais
+
+#### Anunciar
+
+- **Anúncio:** Após o login, clique na aba "Anúncio" para criar um novo anúncio.
+  - Preencha os detalhes necessários do seu item ou serviço.
+  - Publique o anúncio para que outros usuários possam vê-lo.
+
+#### Realizar Trocas
+
+- **Trocas:** Para iniciar uma troca com outro usuário:
+  - Clique na aba "Trocas".
+  - Utilize o chat integrado para discutir os termos da troca e finalizar a negociação.
+
+#### Tornar-se Parceiro
+
+- **Parceiros:** Para estabelecer parcerias:
+  - Navegue até a aba "Parceiros".
+  - Preencha uma proposta de parceria detalhando o que oferece e o que procura.
+  - Espere que o SafeTrade entre em contato para negociar a parceria.
+
+### Configuração do Ambiente de Desenvolvimento
+
+#### Backend
+
+Configuração do Maven:
+Certifique-se de que você tem o Maven instalado. Utilize o comando:
+
+sh
+Copiar código
+mvn clean install
+Iniciar a Aplicação:
+
+sh
+Copiar código
+mvn spring-boot:run
+Frontend
+Clone o Repositório:
+
+sh
+Copiar código
+git clone <URL do Repositório>
+cd codigos/front
+Instale as Dependências:
+Certifique-se de que você tem o Node.js instalado. Utilize o comando:
+
+sh
+Copiar código
+yarn install
+Iniciar a Aplicação:
+
+sh
+Copiar código
+yarn dev
 
 ## Histórico de versões
 

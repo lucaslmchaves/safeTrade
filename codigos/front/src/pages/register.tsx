@@ -58,7 +58,7 @@ export function RegisterPage() {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        "http://localhost:8081/api/usuarios/register",
+        "http://localhost:8081/usuarios",
         usuarioData
       );
       console.log("Usuário criado:", response.data);

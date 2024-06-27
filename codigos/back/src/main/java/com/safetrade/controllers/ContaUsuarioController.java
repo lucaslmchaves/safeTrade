@@ -32,7 +32,7 @@ public class ContaUsuarioController {
     }
 
     @PutMapping("/profile-picture")
-    public ResponseEntity<Usuarios> updateProfilePicture(@RequestParam("file") MultipartFile file, @AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<Usuarios> updateProfilePicture(@RequestParam MultipartFile file, @AuthenticationPrincipal UserDetails userDetails) {
         Usuarios user = usuariosService.atualizarFotoDePerfil(userDetails.getUsername(), file);
         return ResponseEntity.ok(user);
     }
